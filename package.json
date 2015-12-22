@@ -1,0 +1,17 @@
+{
+  "name": "Arvore_de_Natal_Inteligente",
+  "version": "1.0.0",
+  "description": "Arvore de Natal Arduino ESP8266 Internet das Coisas MQTT",
+  "main": "index.js",
+  "dependencies": {
+    "mosca": "^0.32.1",
+    "mqtt": "^1.6.1",
+    "socket.io": "^1.3.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Douglas Salin Zuqueto",
+  "license": "MIT"
+}

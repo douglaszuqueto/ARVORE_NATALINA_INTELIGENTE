@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>ESP8266 and LED - MQTT/WS</title>
+</head>
+<body>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
+  <style>
+  .arvore_de_natal{
+    width: 200px;
+  }
+  </style>
+  <script src="http://git.eclipse.org/c/paho/org.eclipse.paho.mqtt.javascript.git/plain/src/mqttws31.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
+  <script type="text/javascript">
+  var MQTTWS_BROKER = "10.42.0.1"; // IP Broker MQTT (Meu Servidor)
+  var WS_PORT = 80; // Porta de WebSockets para Comunicação
+  var MQTT = new Paho.MQTT.Client(MQTTWS_BROKER, WS_PORT,"Fedora-"+ new Date().getTime()); // Instancia o Cliente MQTT
+  MQTT.onConnectionLost = function (responseObject) {
+    console.log("Status: " + responseObject.errorMessage);
+  };
+  MQTT.onMessageArrived = function (message) {
+    console.log(message.destinationName, ' -- ', message.payloadString);
+  };
+  var options = {
+    timeout: 3,
+    onSuccess: function () {
+      console.log("Conectado com o Broker MQTT");
+      MQTT.subscribe('arvore/1', {qos: 0}); // Assina o Tópico led/1
+
+    },
+    onFailure: function (message) {
+      console.log("Connection failed: " + message.errorMessage);
+    }
+  };
+  function init() {
+    MQTT.connect(options); // Conecta ao Broker MQTT
+  }
+  $(document).ready(function(){
+    $('#btn-on').click(function(){ // Evento do Botão Ligar
+      message = new Paho.MQTT.Message("1"); // Cria uma nova mensagem
+      message.destinationName = "arvore/1"; // Define o tópico a ser enviado, neste caso: led/1
+      MQTT.send(message); // Envia a mensagem
+      alert('Feliz Natal meu caro amigo');
+    });
+  });
+  init();
+  </script>
+</body>
+<div class="container">
+  <div class="row">
+    <div class="col s12">
+      <h4 class="center ">Árvore de Natal Inteligente</h4>
+      <h5 class="center ">Quer me deseja feliz natal? Então clique no botão abaixo</h5>
+      <div class="row center">
+        <a class="waves-effect waves-light btn green modal-trigger" id="btn-on">Feliz Natal</a>
+      </div>
+
+    </div>
+    <div class="divider"></div>
+    <div class="row center">
+      <img src="./arvore.gif" class="arvore_de_natal" alt="http://2.bp.blogspot.com/-t7IzOfw8X40/UMIKLaWtt6I/AAAAAAAAoUE/zjkN_b23-Jk/s1600/Gifs-Natal-Arvore-077.gif">
+    </div>
+
+  </div>
+</div>
+</body>
+</html>
