@@ -25,11 +25,11 @@ Ano que vem pretendo fazer algo mais inteligente, como mensagens natalinas, matr
 
 ### Fotos
 
-** Aplicação Web
+** Aplicação Web **
 ![ScreenShot](https://raw.githubusercontent.com/douglaszuqueto/ARVORE_NATALINA_INTELIGENTE/master/IMAGENS/APLICACAO_WEB.png)
 
-** Árvore de Natal
+** Árvore de Natal **
 ![ScreenShot](https://raw.githubusercontent.com/douglaszuqueto/ARVORE_NATALINA_INTELIGENTE/master/IMAGENS/ARVORE_NATAL.jpg)
 
-** Embarcado
+** Embarcado **
 ![ScreenShot](https://raw.githubusercontent.com/douglaszuqueto/ARVORE_NATALINA_INTELIGENTE/master/IMAGENS/EMBARCADO.jpg)
