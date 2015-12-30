@@ -36,3 +36,5 @@ Ano que vem pretendo fazer algo mais inteligente, como mensagens natalinas, matr
 #### Embarcado 
 
 ![ScreenShot](https://raw.githubusercontent.com/douglaszuqueto/ARVORE_NATALINA_INTELIGENTE/master/IMAGENS/EMBARCADO.jpg)
+
+*** Douglas Salin Zuqueto ***
